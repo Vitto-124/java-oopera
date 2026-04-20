@@ -8,14 +8,14 @@ public class Theatre {
         Director director1 = new Director("Сергей", "Иванов", Gender.MALE, 5);
         Director director2 = new Director("Елена", "Николаева", Gender.FEMALE, 3);
 
-        String musicAuthor = "Пётр Чайковский";
-        String choreographer = "Михаил Фокин";
+        Person tchaikovsky = new Person("Пётр", "Чайковский", Gender.MALE);
+        Person phokin = new Person("Михаил", "Фокин", Gender.MALE);
 
         Show regularShow = new Show("Гамлет", 180, director1);
-        Opera opera = new Opera("Кармен", 150, director2, musicAuthor,
+        Opera opera = new Opera("Кармен", 150, director2, tchaikovsky,
                 "История о любви и страсти в Испании...", 40);
-        Ballet ballet = new Ballet("Лебединое озеро", 160, director1, musicAuthor,
-                "Волшебная история о заколдованной принцессе...", choreographer);
+        Ballet ballet = new Ballet("Лебединое озеро", 160, director1, tchaikovsky,
+                "Волшебная история о заколдованной принцессе...", phokin);
 
         regularShow.addActor(actor1); // Распределяем актёров по спектаклям
         regularShow.addActor(actor2);
@@ -39,10 +39,10 @@ public class Theatre {
         regularShow.printActorsList();
 
         System.out.println("~~~~~~~~~ Замена актёра ~~~~~~~~~"); // Заменяем актёра в одном из спектаклей
-        ballet.replaceActor(actor2, "Козлов"); // заменяем Алексея Козлова на Марию Сидорову
+        ballet.replaceActor(actor2, "Алексей","Козлов");
         ballet.printActorsList(); // Ещё раз выводим список актёров для балета после замены
 
         System.out.println("~~~ Попытка замены несуществующего актёра ~~~"); // Пытаемся заменить несуществующего актёра
-        regularShow.replaceActor(actor3, "Смирнов"); // актёра с фамилией Смирнов нет в спектакле
+        regularShow.replaceActor(actor3, "Иван","Смирнов");
     }
 }

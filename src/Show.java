@@ -15,21 +15,29 @@ class Show {
     }
 
     public void addActor(Actor actor) {
-        if (!listOfActors.contains(actor)) {
-            listOfActors.add(actor);
-        }
+        if (!listOfActors.contains(actor)) listOfActors.add(actor);
+        else System.out.println("Такой актор уже есть в списке");
     }
 
-    public void replaceActor(Actor newActor, String oldSurname) {
+    // Заменяем актера по имени и фамилии
+    public void replaceActor(Actor newActor, String oldName, String oldSurname) {
+        boolean found = false;
+
         for (int i = 0; i < listOfActors.size(); i++) {
             Actor currentActor = listOfActors.get(i);
-            if (currentActor.getSurname().equals(oldSurname)) {
+            if (currentActor.getName().equals(oldName) &&
+                    currentActor.getSurname().equals(oldSurname)) {
+
                 listOfActors.set(i, newActor);
+                found = true;
                 System.out.println("Актёр " + currentActor + " заменён на " + newActor + ".");
-                return;
+                break;
             }
         }
-        System.out.println("В спектакле '" + title + "' нет актёров с фамилией '" + oldSurname + "'.");
+
+        if (!found) {
+            System.out.println("В спектакле '" + title + "' не найден актёр '" + oldName + " " + oldSurname + "'.");
+        }
     }
 
     public void printActorsList() {
