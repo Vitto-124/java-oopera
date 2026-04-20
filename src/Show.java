@@ -16,7 +16,7 @@ class Show {
 
     public void addActor(Actor actor) {
         if (!listOfActors.contains(actor)) listOfActors.add(actor);
-        else System.out.println("Такой актор уже есть в списке");
+        else System.out.println("Такой актёр уже есть в списке");
     }
 
     // Заменяем актера по имени и фамилии
